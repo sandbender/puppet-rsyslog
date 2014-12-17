@@ -2,7 +2,10 @@
 
 <% if @rsyslog_version and @rsyslog_version.split('.')[0].to_i < 7 -%>
 # Debian, Ubuntu
-RSYSLOGD_OPTIONS="-c4"
+#RSYSLOGD_OPTIONS="-c4"
+# Remove this completely irrespective of rsyslog version for the moment, since the Fact isn't updated until after this runs
+# on the first puppet run after the new version of this module is used (this option breaks rsyslog-8.x).
+RSYSLOGD_OPTIONS=""
 <% end -%>
 
 # CentOS, RedHat, Fedora
